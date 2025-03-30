@@ -1,0 +1,19 @@
+[package]
+name = "r2r_package_opencv"
+version = "0.1.0"
+authors = ["Mathias Balling <math260r@gmail.com>"]
+edition = "2024"
+
+# We use a custom profile to keep colcon
+# separate from "normal" rust building.
+[profile.colcon]
+inherits = "release"
+
+[[bin]]
+name = "r2r_opencv"
+path = "./src/r2r_opencv/main.rs"
+
+[dependencies]
+r2r = "0.9"
+futures = "0.3"
+opencv = { version = "0.94", features = ["clang-runtime"] }
